@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ManageTimeLibrary\ManageTimeLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="G:\Projekty_VisualStudio\ManageTime\ManageTimeConsoleApp\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="G:\Projekty_VisualStudio\ManageTime\ManageTimeConsoleApp\.editorconfig" />
+  </ItemGroup>
+
+</Project>
