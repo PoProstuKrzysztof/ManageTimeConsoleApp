@@ -16,7 +16,7 @@ ApplicationData.activityCategories.AddRange(new List<ActivityCategory>
     //new ActivityCategory("Work")
 
 });
-string test = "test";
+
 int choice = 0;
 
 while (choice != 7)
