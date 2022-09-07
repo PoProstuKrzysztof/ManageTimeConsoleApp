@@ -11,6 +11,7 @@ public class ActivityCategory
 
     public ActivityCategory(string categoryName)
     {
+        
         CategoryTitle = categoryName;
         this.Id = Interlocked.Increment(ref a_Counter);
     }
