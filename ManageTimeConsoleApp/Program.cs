@@ -1,76 +1,70 @@
 ﻿
 using ManageTimeConsoleApp;
 using ManageTimeLibrary;
+using System.Runtime.CompilerServices;
 
-//ApplicationData.activityCategories.AddRange(new List<ActivityCategory>
-//{
-//    new ActivityCategory("Czytanie"),
-//    new ActivityCategory("Bieganie"),
-//    new ActivityCategory("Siłownia"),
-//    new ActivityCategory("Programowanie"),
-//    new ActivityCategory("Granie"),
-//    new ActivityCategory("Spacer"),
-//    new ActivityCategory("Praca")
 
-//});
+
+ApplicationData.activityCategories.AddRange(new List<ActivityCategory>
+{
+    new ActivityCategory("Reading"),
+    new ActivityCategory("Running"),
+    new ActivityCategory("Gym"),
+    //new ActivityCategory("Programing"),
+    //new ActivityCategory("Gaming"),
+    //new ActivityCategory("Walk"),
+    //new ActivityCategory("Work")
+
+});
 
 int choice = 0;
-while (choice != 6)
-{
-    Console.WriteLine("Menu\n");
-    Console.WriteLine("Co chcesz zrobić?");
-    Console.WriteLine("1. Dodaj kategorie.");
-    Console.WriteLine("2. Pokaż kategorie.");
-    Console.WriteLine("3. Usuń kategorie.");
-    Console.WriteLine("4. Edytuj kategorie.");
-    Console.WriteLine("5. Odmierzaj czas.");
-    Console.WriteLine("6. Wyjście.");
-    try
-    {
-        choice = int.Parse(Console.ReadLine());
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine("\nProsze wpisać cyfre 1-6.\n");
-    }
-    
-    
 
+while (choice != 7)
+{
+    
+    Console.WriteLine("Menu\n");
+    Console.WriteLine("Choose option");
+    Console.WriteLine("1. Add category.");
+    Console.WriteLine("2. Show categories.");
+    Console.WriteLine("3. Delete categories.");
+    Console.WriteLine("4. Edit categories.");
+    Console.WriteLine("5. Measure time.");
+    Console.WriteLine("6. Show most used category.");
+    Console.WriteLine("7. Exit.");
+
+    choice = int.Parse(Console.ReadLine());
     switch (choice)
     {
-
-
-
-        // Dodaje kategorie
+        // Adding categories
         case 1:
             AddCategory.AddCategoryToList();
             break;
 
 
-
-        // Pokazuje kategorie
+        // Showing categories
         case 2:
             ShowCategory.ShowCategories();
             break;
 
 
-        // Usuwa kategorie   
+        // Deleting categories 
         case 3:
             DeleteCategory.DeleteCategoryFromList();
             break;
 
 
-
-        // Edytuje kategorie
+        // Editing categories
         case 4:
             EditCategory.EditCategoryInList();
             break;
 
 
-
-        // Odmierzanie czasu spędzonego na danej kategorii 
+        // Time measure for specific category
         case 5:
             MeasureTimeOperations.TimerOperations();
+            break;
+        case 6:
+            MostUsedCategory.ShowMostUsedCategory();
             break;
 
     }

@@ -5,27 +5,30 @@ public class AddCategory
 {
     public static void AddCategoryToList()
     {
-        Console.WriteLine("Wpisz kategorie");
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine("Enter title of the category.");
+        Console.ForegroundColor = ConsoleColor.White;
 
-        var categoryName = Console.ReadLine();
+        var categoryTitle = Console.ReadLine();
 
 
-        // check if category exist
+        // check if category already exist
         foreach (ActivityCategory category in ApplicationData.activityCategories)
         {
-            if (category.CategoryName == categoryName)
+            if (category.CategoryTitle == categoryTitle)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\nTaka kategoria już istnieje!\n");
+                Console.WriteLine("\nCategory already exits!\n");
                 Console.ForegroundColor = ConsoleColor.White;
                 return;
             }
         }
 
-        ApplicationData.activityCategories.Add(new ActivityCategory($"{categoryName}"));
+        // adds category
+        ApplicationData.activityCategories.Add(new ActivityCategory($"{categoryTitle}"));
               
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine($"\nUtworzono kategorie {categoryName}!\n");
+        Console.WriteLine($"\nCategory {categoryTitle} was created!\n");
         Console.ForegroundColor = ConsoleColor.White;
     }
     

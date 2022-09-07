@@ -8,7 +8,7 @@ public class ShowCategory
         if (ApplicationData.activityCategories.Count == 0)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\nNie wprowadzono żadnych kategorii. Musisz jakąś dodać.");
+            Console.WriteLine("\nThere is not categories added to the list. You have to add some.\n");
             Console.ForegroundColor = ConsoleColor.White;
             AddCategory.AddCategoryToList();
             

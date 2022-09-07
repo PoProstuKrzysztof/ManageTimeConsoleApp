@@ -11,12 +11,11 @@ public class MeasureTime
 
     public static void StopTimer() => timer.Stop();
 
-
     public static string TimeElapsed()
     {
         TimeSpan timeElapsed = timer.Elapsed;
         
-        string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+        string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{1:00}",
             timeElapsed.Hours, timeElapsed.Minutes, timeElapsed.Seconds,
             timeElapsed.Milliseconds / 10);
        
