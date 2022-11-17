@@ -53,7 +53,6 @@
                     category.TimeSpend += timeElapsed;
 
 
-
                     //summary
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine( "\nTime elapsed: \n" + MeasureTime.TimeElapsed() );
