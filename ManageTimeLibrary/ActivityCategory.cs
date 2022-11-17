@@ -7,7 +7,7 @@ public class ActivityCategory
 
     public string CategoryTitle{ get; set; }
 
-    public TimeSpan TimeSpend { get; set; }
+    public TimeSpan TimeSpend { get; set; } 
 
     public ActivityCategory(string categoryName)
     {
@@ -16,7 +16,12 @@ public class ActivityCategory
         this.Id = Interlocked.Increment(ref a_Counter);
     }
 
-    public void ShowTooltip() => Console.WriteLine($"Category title: {CategoryTitle}, Time spend on category: {TimeSpend}\nId: {Id}\n-------------------------------------------------------------");
+    public string ActivityTime()
+    {
+        var ts = TimeSpend.ToString( @"hh\:mm\:ss" );
+        return ts;
+    }
+    public void ShowTooltip() => Console.WriteLine($"Category title: {CategoryTitle}, Time spend on category: {ActivityTime()}\nId: {Id}\n-------------------------------------------------------------");
 
 
 }

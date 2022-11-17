@@ -9,10 +9,11 @@
 
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\nChoose category to measure time. \n");
+            Console.WriteLine( "\nChoose category to measure time. \n" );
             Console.ForegroundColor = ConsoleColor.White;
-            int categoryChoice = int.Parse(Console.ReadLine());
+            int categoryChoice = int.Parse( Console.ReadLine() );
 
+            //searching for category
 
             foreach (ActivityCategory category in ApplicationData.activityCategories)
             {
@@ -20,52 +21,54 @@
                 {
 
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("\nStart the timer using 1\n");
+                    Console.WriteLine( "\nStart the timer using 1\n" );
 
-
-                    int startTimer = int.Parse(Console.ReadLine());
-
-                    if (startTimer == 1)
+                    //starting timer
+                    int startTimer = int.Parse( Console.ReadLine() );
+                    MeasureTime.timer.Reset();
+                    while (startTimer != 2)
                     {
-                        MeasureTime.timer.Reset();
-                        Console.WriteLine("\nStop the timer using 2\n");
+                        
+                        
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine( "\nStop the timer using 2\n" );
                         Console.ForegroundColor = ConsoleColor.White;
 
                         MeasureTime.StartTimer();
-                        startTimer = int.Parse(Console.ReadLine());
-
-                        if (startTimer == 2)
+                        startTimer = int.Parse( Console.ReadLine() );
+      
+                        if(startTimer != 2 )
                         {
-                            MeasureTime.StopTimer();
-
-                            if (category.TimeSpend.TotalMilliseconds == 0)
-                            {
-                                TimeSpan timeElapsed = MeasureTime.timer.Elapsed;
-                                category.TimeSpend = timeElapsed;
-                            }
-                            else
-                            {
-                                TimeSpan timeElapsed = MeasureTime.timer.Elapsed;
-                                category.TimeSpend += timeElapsed;
-                            }
-
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine( "\nTo stop the timer, you have to press  \"2\" " );
+                            Console.ForegroundColor = ConsoleColor.White;
                         }
-                        else Console.WriteLine("\nTo stop the timer, you have to press  \"2\" ");
-                        // dodać pętle
+                                                
 
                     }
-                    else   
-                        Console.WriteLine("\nYou have to press \"1\" to start the timer.");
+                    //stopping timer
+                    MeasureTime.StopTimer();
 
-                    
-                    
+                    TimeSpan timeElapsed = MeasureTime.timer.Elapsed;
+                    category.TimeSpend += timeElapsed;
+
+
+
+                    //summary
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nTime elapsed " + MeasureTime.TimeElapsed());
-                    Console.WriteLine("\nTime elapsed in category: " + category.TimeSpend);
+                    Console.WriteLine( "\nTime elapsed: \n" + MeasureTime.TimeElapsed() );
+                    Console.WriteLine( "\nTime elapsed in category: \n" + category.ActivityTime() );
                     Console.ForegroundColor = ConsoleColor.White;
+                    return;
                 }
 
             }
+
+            //if category wasn't found
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine( "\nCategory doesn't exist.\n" );
+            Console.ForegroundColor = ConsoleColor.White;
+
 
         }
     }

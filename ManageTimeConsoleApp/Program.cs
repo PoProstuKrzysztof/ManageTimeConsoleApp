@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 
 ApplicationData.activityCategories.AddRange(new List<ActivityCategory>
 {
+    //example activities
     new ActivityCategory("Reading"),
     new ActivityCategory("Running"),
     new ActivityCategory("Gym"),
@@ -18,6 +19,8 @@ ApplicationData.activityCategories.AddRange(new List<ActivityCategory>
 });
 
 int choice = 0;
+
+
 
 while (choice != 7)
 {

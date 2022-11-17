@@ -1,5 +1,4 @@
-﻿
-namespace ManageTimeLibrary;
+﻿namespace ManageTimeLibrary;
 
 public class AddCategory
 {
